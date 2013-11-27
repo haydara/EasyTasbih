@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="resetClicked"
+        android:text="@string/reset" />
+
+    <TextView
+        android:id="@+id/counterNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/counter_number"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="150sp" />
+
+    <Button
+        android:id="@+id/counter_button"
+        android:layout_width="@dimen/counter_button_width"
+        android:layout_height="@dimen/counter_button_height"
+        android:layout_below="@+id/counterNumber"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:onClick="counterClicked"
+        android:text="@string/counter_button" />
+
+</RelativeLayout>
