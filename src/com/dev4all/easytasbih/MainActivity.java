@@ -1,21 +1,41 @@
 package com.dev4all.easytasbih;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.WallpaperManager;
+import android.graphics.drawable.Drawable;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+@SuppressLint("NewApi")
 public class MainActivity extends Activity {
 	
 	private static int counterValue = 0;
 	
-    @Override
+    @SuppressWarnings("deprecation")
+	@SuppressLint("NewApi")
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+        
+        updateCurrentCounter();
+        
+        final WallpaperManager wallpaperManager = WallpaperManager.getInstance(this);
+        final Drawable wallpaperDrawable = wallpaperManager.getDrawable();
+        
+        LinearLayout view = (LinearLayout) findViewById (R.id.lLayout);
+        
+        if (Build.VERSION.SDK_INT >= 16)
+            view.setBackground(wallpaperDrawable);
+        else
+            view.setBackgroundDrawable(wallpaperDrawable);
+     }
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
